@@ -1,0 +1,11 @@
+.layout-navbar-fixed .wrapper .sidebar-dark-primary .brand-link:not([class*="navbar"]) {
+    background-color: #fff;
+}
+.brand-link {
+    padding: 5px .5rem;
+}
+.brand-link .brand-image {
+    width: auto;
+    max-width: 200px;
+    max-height: 50px;
+}
