@@ -4,7 +4,7 @@
     <div class="login-box">
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a>
+                <a href="{{ route('login') }}" class="h1">{{ config('app.name', 'HRM') }}</a>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">You forgot your password? Here you can easily retrieve a new password.</p>

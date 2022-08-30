@@ -5,7 +5,7 @@
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="{{ route('login') }}" class="h1"><b>HRM</b>Soft</a>
+                <a href="{{ route('login') }}" class="h1">{{ config('app.name', 'HRM') }}</a>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password" required
+                        <input type="password" name="password" class="form-control" placeholder="Password" required
                                autocomplete="current-password">
                         <div class="input-group-append">
                             <div class="input-group-text">
