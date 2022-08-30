@@ -1,5 +1,12 @@
 <?php
 
+use App\Http\Controllers\Dashboard\CurrencyController;
+use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\EmployeeController;
+use App\Http\Controllers\Dashboard\OptionController;
+use App\Http\Controllers\Dashboard\PermissionController;
+use App\Http\Controllers\Dashboard\RoleController;
+use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,9 +26,17 @@ Route::group(['prefix' => '/', 'middleware' => ['guest']], function() {
 });
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
-    Route::get('/', function () {
-        return view('admin.dashboard');
-    })->name('dashboard');
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::resource('employee', EmployeeController::class);
+    Route::resource('currency', CurrencyController::class);
+    Route::resource('user', UserController::class);
+    Route::resource('role', RoleController::class);
+    Route::resource('permission', PermissionController::class);
+
+    Route::group(['prefix' => 'option'], function() {
+        Route::get('/', [OptionController::class, 'index'])->name('option.index');
+    });
 });
 
 require __DIR__.'/auth.php';
