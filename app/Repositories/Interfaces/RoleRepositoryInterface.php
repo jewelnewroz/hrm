@@ -1,9 +1,8 @@
 <?php
 
-
 namespace App\Repositories\Interfaces;
 
-
-interface DesignationRepositoryInterface
+interface RoleRepositoryInterface
 {
+
 }

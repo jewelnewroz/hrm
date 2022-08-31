@@ -4,27 +4,16 @@
 namespace App\Http\View\Composers;
 
 
+use App\Services\DepartmentService;
 use Illuminate\View\View;
-use App\Repositories\Interfaces\DepartmentRepositoryInterface;
-use App\Repositories\UserRepository;
 
 class DepartmentComposer
 {
-    /**
-     * The user repository implementation.
-     *
-     * @var UserRepository
-     */
-    protected $department;
+    private DepartmentService $departmentService;
 
-    /**
-     * Create a new profile composer.
-     *
-     * @param DepartmentRepositoryInterface $department
-     */
-    public function __construct(DepartmentRepositoryInterface $department)
+    public function __construct(DepartmentService $departmentService)
     {
-        $this->department = $department;
+        $this->departmentService = $departmentService;
     }
 
     /**
@@ -35,6 +24,6 @@ class DepartmentComposer
      */
     public function compose(View $view)
     {
-        $view->with('department_dropdowns', $this->department->all());
+        $view->with('department_dropdowns', $this->departmentService->all());
     }
 }

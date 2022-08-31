@@ -11,7 +11,7 @@ use App\Repositories\Interfaces\UserRepositoryInterface;
 
 class UserRepository extends BaseRepository implements UserRepositoryInterface
 {
-    protected $model;
+    protected \Illuminate\Database\Eloquent\Model $model;
     /**
      * UserRepository constructor.
      *

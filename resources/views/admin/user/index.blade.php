@@ -3,71 +3,6 @@
 @section('content')
 
     <article class="content items-list-page">
-        <div class="title-search-block">
-            <div class="title-block">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h3 class="title"> {{ $title }} <a href="{{ route('user.create')}}"
-                                                           class="btn btn-primary btn-sm rounded-s"> Add New </a>
-                            <div class="action dropdown">
-                                <button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button"
-                                        id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false"><i class="fa fa-wrench"></i> Actions
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <a class="dropdown-item" href="#"><i class="fa fa-user-check icon"></i> Active</a>
-                                    <a class="dropdown-item" href="#" data-toggle="modal"
-                                       data-target="#confirm-modal"><i class="fa fa-user-alt-slash icon"></i>
-                                        Deactive</a>
-                                </div>
-                            </div>
-                            <div class="action dropdown">
-                                <button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button"
-                                        id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false"><i class="fa fa-cog"></i> Manage
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <a class="dropdown-item" href="{{ route('user.index') }}"><i
-                                            class="fa fa-file-export icon"></i> Export</a>
-                                    <a class="dropdown-item" href="{{ route('user.index') }}"><i
-                                            class="fa fa-file-import icon"></i> Import</a>
-                                </div>
-                            </div>
-                        </h3>
-                    </div>
-                </div>
-            </div>
-            <div class="items-search" id="customFilters">
-                <form class="form-inline">
-                    <div class="input-group">
-                        <input type="text" class="form-control boxed rounded-s"
-                               value="<?php echo (isset($_GET['q'])) ? $_GET['q'] : ''; ?>" placeholder="Search for..."
-                               id="keywords">
-                        <span class="input-group-btn">
-                                        <select class="form-control" id="role">
-                                            <option value="">Role</option>
-                                            @foreach( $role_lists as $k => $v )
-                                                <option
-                                                    value="{{ $k }}">{{ ucfirst( str_replace('_', ' ', $v ) ) }}</option>
-                                            @endforeach
-                                        </select>
-                                    </span>
-                        <span class="input-group-btn">
-                                        <select class="form-control" id="status">
-                                            <option value="">Status</option>
-                                            <option value="0">Pending</option>
-                                            <option value="1">Active</option>
-                                            <option value="2">Disabled</option>
-                                        </select>
-                                        <button class="btn btn-secondary rounded-s list-search-btn" type="button"
-                                                id="search">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
-                    </div>
-                </form>
-            </div>
-        </div>
         <div class="card items">
 
             <div class="col-sm-12">
@@ -211,7 +146,7 @@
                 $('#datetimepicker2').datetimepicker();
             });
         });
-        var url = "{{ route('dashboard.user.index') }}";
+        let url = "{{ route('user.index') }}";
         //
         // Pipelining function for DataTables. To be used to the `ajax` option of DataTables
         //
@@ -220,7 +155,7 @@
             // Configuration options
             var conf = $.extend({
                 pages: 5,     // number of pages to cache
-                url: "{{ route('dashboard.user.index') }}",      // script url
+                url: "{{ route('user.index') }}",      // script url
                 data: null,   // function or object with parameters to send to the server
                               // matching how `ajax.data` works in DataTables
                 method: 'GET' // Ajax HTTP method
@@ -443,7 +378,7 @@
             $('table').on('click', '.user-action', function (e) {
                 e.defaultPrevented;
                 console.log(this);
-                var url = "{{ route('dashboard.user.action') }}";
+                var url = "{{ route('user.index') }}";
                 var action = $(this).data('action');
                 var id = $(this).data('user-id');
                 if (action == 'request') {

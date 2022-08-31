@@ -5,28 +5,15 @@ namespace App\Http\View\Composers;
 
 
 use Illuminate\View\View;
-use App\Repositories\UserRepository;
-use App\Services\Branches;
+use App\Services\BranchService;
 
 class BranchComposer
 {
-    /**
-     * The user repository implementation.
-     *
-     * @var UserRepository
-     */
-    protected $branch;
+    private BranchService $branchService;
 
-    /**
-     * Create a new profile composer.
-     *
-     * @param    $branch
-     * @return void
-     */
-    public function __construct(Branches $branch)
+    public function __construct(BranchService $branchService)
     {
-        // Dependencies automatically resolved by service container...
-        $this->branch = $branch;
+        $this->branchService = $branchService;
     }
 
     /**
@@ -37,6 +24,6 @@ class BranchComposer
      */
     public function compose(View $view)
     {
-        $view->with('branch_dropdowns', $this->branch->getDropdown());
+        $view->with('branch_lists', $this->branchService->all());
     }
 }

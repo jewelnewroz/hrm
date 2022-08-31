@@ -16,12 +16,4 @@ class DesignationRepository extends BaseRepository implements DesignationReposit
     {
         parent::__construct($model);
     }
-
-    public function all() : Collection
-    {
-        return Cache::rememberForever('designations', function() {
-            parent::all();
-        });
-    }
-
 }

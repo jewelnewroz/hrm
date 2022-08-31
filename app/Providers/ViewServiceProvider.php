@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\View\Composers\RoleComposer;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use App\Http\View\Composers\BranchComposer;
@@ -29,6 +30,9 @@ class ViewServiceProvider extends ServiceProvider
         );
         View::composer(
             '*', CurrencyComposer::class
+        );
+        View::composer(
+            'admin.user.index', RoleComposer::class
         );
     }
 

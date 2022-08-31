@@ -5,25 +5,15 @@ namespace App\Http\View\Composers;
 
 
 use Illuminate\View\View;
-use App\Services\Currencies;
+use App\Services\CurrencyService;
 
 class CurrencyComposer
 {
-    /**
-     * The user repository implementation.
-     *
-     * @var
-     */
-    protected $currencies;
+    private CurrencyService $currencyService;
 
-    /**
-     * Create a new profile composer.
-     *
-     * @param Currencies $currencies
-     */
-    public function __construct( Currencies $currencies)
+    public function __construct(CurrencyService $currencyService)
     {
-        $this->currencies = $currencies;
+        $this->currencyService = $currencyService;
     }
 
     /**
@@ -35,7 +25,7 @@ class CurrencyComposer
     public function compose(View $view)
     {
         $view->with([
-            'currencies' => $this->currencies->symbolic(),
+            'currencies' => $this->currencyService->symbolic(),
         ]);
     }
 }

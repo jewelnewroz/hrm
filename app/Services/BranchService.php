@@ -5,30 +5,21 @@ namespace App\Services;
 
 
 use App\Repositories\Interfaces\BranchRepositoryInterface;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
 
 class BranchService
 {
-    private $branches;
+    private BranchRepositoryInterface $branchRepository;
     public function __construct( BranchRepositoryInterface $branchRepository)
     {
-        $this->branches = $branchRepository;
+        $this->branchRepository = $branchRepository;
     }
 
-    public function getDropdown()
+    public function all(): Collection
     {
-        return $this->branches->all()
-            ->map(function($item, $key) {
-                return [
-                    'id' => $item->id,
-                    'name' => $item->name
-                ];
-            });
-    }
-
-    public function getUserBranch($id)
-    {
-        return $this->branches->all()
-            ->where('id', $id)
-            ->first();
+        return Cache::rememberForever('branches', function () {
+            return $this->branchRepository->all();
+        });
     }
 }

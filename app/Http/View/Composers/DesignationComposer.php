@@ -4,28 +4,17 @@
 namespace App\Http\View\Composers;
 
 
+use App\Services\DesignationService;
+use App\Services\UserService;
 use Illuminate\View\View;
-use App\Repositories\UserRepository;
 
 class DesignationComposer
 {
-    /**
-     * The user repository implementation.
-     *
-     * @var UserRepository
-     */
-    protected $user;
+    private DesignationService $designationService;
 
-    /**
-     * Create a new profile composer.
-     *
-     * @param  UserRepository  $users
-     * @return void
-     */
-    public function __construct(UserRepository $user)
+    public function __construct(DesignationService $designationService)
     {
-        // Dependencies automatically resolved by service container...
-        $this->user = $user;
+        $this->designationService = $designationService;
     }
 
     /**
@@ -36,6 +25,6 @@ class DesignationComposer
      */
     public function compose(View $view)
     {
-//        $view->with('designations', $this->user->getBillmanForDropDown());
+        $view->with('designations', $this->designationService->all());
     }
 }

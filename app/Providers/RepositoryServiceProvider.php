@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Repositories\Interfaces\RoleRepositoryInterface;
+use App\Repositories\RoleRepository;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\BaseRepository;
 use App\Repositories\BranchRepository;
@@ -31,6 +33,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(DesignationRepositoryInterface::class, DesignationRepository::class);
         $this->app->bind(BranchRepositoryInterface::class, BranchRepository::class);
         $this->app->bind(CurrencyRepositoryInterface::class, CurrencyRepository::class);
+        $this->app->bind(RoleRepositoryInterface::class, RoleRepository::class);
     }
 
     /**
