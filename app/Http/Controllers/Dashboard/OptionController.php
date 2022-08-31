@@ -3,83 +3,64 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
+use Larabill\Models\Option;
 
 class OptionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        return view('admin.option.index')->with(['title' => 'Options']);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store(Request $request): RedirectResponse
     {
-        //
+        $label = '';
+        $msg = '';
+        if( isset( $_POST['tab'] ) ) :
+            Cache::forget('options');
+            foreach( $_POST as $key => $value )
+            {
+                if( $key != 'submit' && $key != 'tab' && $key != 'id' && $key != '_token')
+                {
+                    if( $this->_option_exist( $key ) ) {
+                        DB::table('options')
+                            ->where(['label' => $key])
+                            ->update(['content' => $value ]);
+                        $msg = 'Option has been updated successfully.';
+                        $label = 'success';
+                    }else{
+                        $option = Option::create([
+                            'label' => $key,
+                            'content' => $value
+                        ]);
+                        if( $option ) :
+                            $msg = 'Option has been updated successfully.';
+                            $label = 'success';
+                        else :
+                            $label = 'error';
+                            $msg = 'Sorry! Option cannot be updated.';
+                        endif;
+                    }
+                }
+            }
+        else :
+            $label = 'error';
+            $msg = 'Sorry! Option cannot be updated.';
+        endif;
+
+        return redirect()->route('dashboard.option.index', ['tab' => $request->tab ])->with(['message.label' => $label, 'message.content' => $msg]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function _option_exist( $key ): bool
     {
-        //
-    }
+        $where = ['label' => $key];
+        $option = Option::where( $where )->first();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return (bool)$option;
     }
 }

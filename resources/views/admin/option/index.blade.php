@@ -45,34 +45,34 @@
                         <div class="bhoechie-tab-content <?php if (!isset($_GET['tab']) || $_GET['tab'] == 'general') echo 'active'; ?>">
                             <!-- General Tab-->
                             <h5>General Options</h5>
-                            @include('madmin/option/general')
+                            @include('admin/option/general')
                         </div>
                         <!-- flight section -->
                         <div class="bhoechie-tab-content <?php if (isset($_GET['tab']) && $_GET['tab'] == 'statement') echo 'active'; ?>">
                             <!-- General Tab-->
                             <h5>Statement Options</h5>
-                            @include('madmin/option/statement')
+                            @include('admin/option/statement')
                         </div>
 
                         <!-- flight section -->
                         <div class="bhoechie-tab-content <?php if (isset($_GET['tab']) && $_GET['tab'] == 'billing') echo 'active'; ?>">
                             <!-- General Tab-->
                             <h5>Billings</h5>
-                            @include('madmin/option/billing')
+                            @include('admin/option/billing')
                         </div>
 
                         <!-- train section -->
                         <div class="bhoechie-tab-content <?php if (isset($_GET['tab']) && $_GET['tab'] == 'mikrotik') echo 'active'; ?>">
                             <!-- Contact & About Tab-->
                             <h5>Mikrotik</h5>
-                            @include('madmin/option/mikrotik')
+                            @include('admin/option/mikrotik')
                         </div>
 
                         <!-- train section -->
                         <div class="bhoechie-tab-content <?php if (isset($_GET['tab']) && $_GET['tab'] == 'sms') echo 'active'; ?>">
                             <!-- Contact & About Tab-->
                             <h5>SMS Settings</h5>
-                            @include('madmin/option/sms')
+                            @include('admin/option/sms')
                         </div>
                     </div>
             </div>
