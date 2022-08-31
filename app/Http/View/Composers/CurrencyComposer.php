@@ -25,7 +25,7 @@ class CurrencyComposer
     public function compose(View $view)
     {
         $view->with([
-            'currencies' => $this->currencyService->symbolic(),
+            'currencies' => $this->currencyService->all(),
         ]);
     }
 }

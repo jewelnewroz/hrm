@@ -2,25 +2,6 @@
 
 @section('content')
     <article class="content items-list-page">
-        <div class="title-search-block">
-            <div class="title-block">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h3 class="title"> {{ $title ?? '' }} <a href="{{ route('currency.create')}}" class="btn btn-primary btn-sm rounded-s"> Add New </a>
-                            <div class="action dropdown">
-                                <button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Manage </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <a class="dropdown-item" href="#"><i class="fa fa-file-export icon"></i> Export</a>
-                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-file-import icon"></i> Import</a>
-                                </div>
-                            </div>
-                        </h3>
-                    </div>
-                </div>
-            </div>
-            <div class="items-search" id="customFilters">
-            </div>
-        </div>
         <div class="card items" style="padding: 15px">
             <div class="box">
                 <table class="table table-striped table-bordered" id="dataTable">
@@ -33,8 +14,8 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @if($currencyLists->count())
-                        @foreach( $currencyLists as $currency )
+                    @if($currencies->count())
+                        @foreach( $currencies as $currency )
                             <tr>
                                 <td>{{ $currency->id }}</td>
                                 <td>{{ $currency->name }}</td>

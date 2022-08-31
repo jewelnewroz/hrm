@@ -5,21 +5,26 @@ namespace App\Services;
 
 
 use App\Repositories\Interfaces\CurrencyRepositoryInterface;
+use Illuminate\Support\Facades\Cache;
 
 class CurrencyService
 {
-    /**
-     * @var CurrencyRepositoryInterface
-     */
-    private $currency;
+    private CurrencyRepositoryInterface $currencyRepository;
 
     public function __construct(CurrencyRepositoryInterface $currencyRepository)
     {
-        $this->currency = $currencyRepository;
+        $this->currencyRepository = $currencyRepository;
     }
 
     public function symbolic()
     {
-        return $this->currency->all()->pluck('name', 'symbol');
+        return $this->currencyRepository->all()->pluck('name', 'symbol');
+    }
+
+    public function all()
+    {
+        return Cache::rememberForever('currencies', function () {
+            return $this->currencyRepository->all();
+        });
     }
 }
