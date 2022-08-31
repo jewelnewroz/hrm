@@ -1,4 +1,4 @@
-@extends('madmin.layout._layout')
+@extends('layouts.app')
 
 @section('content')
 
@@ -277,7 +277,7 @@
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function() {
   'use strict';
-  
+
   var form = $('#customerForm');
 
   $('.formNextStep').click(function(e){
@@ -287,7 +287,7 @@
       if(!accSection.isValid()) {
         return false;
       }
-      
+
     }
   });
 

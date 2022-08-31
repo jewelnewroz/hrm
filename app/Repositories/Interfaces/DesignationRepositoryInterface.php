@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Larabill\Repositories\Interfaces;
+namespace App\Repositories\Interfaces;
 
 
 use Illuminate\Database\Eloquent\Collection;

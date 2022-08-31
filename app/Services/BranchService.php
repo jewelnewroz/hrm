@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Larabill\Services;
+namespace App\Services;
 
 
-use Larabill\Repositories\Interfaces\BranchRepositoryInterface;
+use App\Repositories\Interfaces\BranchRepositoryInterface;
 
 class BranchService
 {

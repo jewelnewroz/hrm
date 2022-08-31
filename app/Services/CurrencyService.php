@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Larabill\Services;
+namespace App\Services;
 
 
-use Larabill\Repositories\Interfaces\CurrencyRepositoryInterface;
+use App\Repositories\Interfaces\CurrencyRepositoryInterface;
 
 class CurrencyService
 {

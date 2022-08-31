@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Larabill\Repositories;
+namespace App\Repositories;
 
 
 use Illuminate\Support\Facades\Cache;
-use Larabill\Models\Currency;
-use Larabill\Repositories\Interfaces\CurrencyRepositoryInterface;
+use App\Models\Currency;
+use App\Repositories\Interfaces\CurrencyRepositoryInterface;
 
 class CurrencyRepository extends BaseRepository implements CurrencyRepositoryInterface
 {

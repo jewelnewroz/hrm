@@ -1,11 +1,11 @@
 <?php
 
-namespace Larabill\Observers;
+namespace App\Observers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
-use Larabill\Models\User;
+use App\Models\User;
 
 class UserObserver
 {

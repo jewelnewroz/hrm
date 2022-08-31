@@ -1,4 +1,4 @@
-@extends('madmin.layout._layout')
+@extends('layouts.app')
 
 @section('content')
 
@@ -79,7 +79,7 @@
                                   </table>
                                 </div>
                                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                  
+
                                 </div>
                                 <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
                                   <div class="col-md-7">
@@ -101,7 +101,7 @@
                                   </div>
                                 </div>
                                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                                  
+
                                 </div>
                             </div>
                         </div>

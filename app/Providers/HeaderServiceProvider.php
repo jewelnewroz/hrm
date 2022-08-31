@@ -1,6 +1,6 @@
 <?php
 
-namespace Larabill\Providers;
+namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use DB;

@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Larabill\Sms;
+namespace App\Sms;
 
 use Exception;
-use Larabill\Helper\SmsHelper;
+use App\Helper\SmsHelper;
 
 class SmsMessage
 {

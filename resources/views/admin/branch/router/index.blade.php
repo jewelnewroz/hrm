@@ -1,4 +1,4 @@
-@extends('madmin.layout._layout')
+@extends('layouts.app')
 
 @section('content')
                 <article class="content items-list-page">

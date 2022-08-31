@@ -1,8 +1,8 @@
 <?php
 
-namespace Larabill\Observers;
+namespace App\Observers;
 
-use Larabill\Models\Department;
+use App\Models\Department;
 
 class DepartmentObserver
 {

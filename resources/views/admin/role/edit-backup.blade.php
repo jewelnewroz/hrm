@@ -1,4 +1,4 @@
-@extends('madmin.layout._layout')
+@extends('layouts.app')
 
 
 @section('content')
@@ -15,7 +15,7 @@
 
         <div class="pull-right">
 
-            <a class="btn btn-primary" href="{{ route('roles.index') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ route('role.index') }}"> Back</a>
 
         </div>
 

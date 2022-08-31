@@ -1,6 +1,6 @@
 <?php
 
-namespace Larabill\Helper;
+namespace App\Helper;
 
 class SmsHelper
 {

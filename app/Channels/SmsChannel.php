@@ -1,6 +1,6 @@
 <?php
 
-namespace Larabill\Channels;
+namespace App\Channels;
 
 use Illuminate\Notifications\Notification;
 

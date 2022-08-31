@@ -1,9 +1,9 @@
 <?php
 
-namespace Larabill\Services;
+namespace App\Services;
 
-use Larabill\Http\Requests\CustomerCreateRequest;
-use Larabill\Repositories\Interfaces\UserRepositoryInterface;
+use App\Http\Requests\CustomerCreateRequest;
+use App\Repositories\Interfaces\UserRepositoryInterface;
 
 class UserService
 {

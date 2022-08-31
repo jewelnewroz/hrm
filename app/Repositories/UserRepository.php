@@ -1,13 +1,13 @@
 <?php
 
 
-namespace Larabill\Repositories;
+namespace App\Repositories;
 
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
-use Larabill\Models\User;
-use Larabill\Repositories\Interfaces\UserRepositoryInterface;
+use App\Models\User;
+use App\Repositories\Interfaces\UserRepositoryInterface;
 
 class UserRepository extends BaseRepository implements UserRepositoryInterface
 {

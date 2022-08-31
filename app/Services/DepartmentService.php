@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Larabill\Services;
+namespace App\Services;
 
 
 class DepartmentService

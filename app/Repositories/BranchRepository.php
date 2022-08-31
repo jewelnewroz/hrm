@@ -1,13 +1,13 @@
 <?php
 
 
-namespace Larabill\Repositories;
+namespace App\Repositories;
 
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
-use Larabill\Models\Branch;
-use Larabill\Repositories\Interfaces\BranchRepositoryInterface;
+use App\Models\Branch;
+use App\Repositories\Interfaces\BranchRepositoryInterface;
 
 class BranchRepository extends BaseRepository implements BranchRepositoryInterface
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Larabill\Observers;
+namespace App\Observers;
 
-use Larabill\Models\Designation;
+use App\Models\Designation;
 
 class DesignationObserver
 {

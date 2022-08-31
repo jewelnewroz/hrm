@@ -1,11 +1,11 @@
 <?php
 
-namespace Larabill\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Larabill\Models\User;
+use App\Models\User;
 
 class Employee extends Model
 {

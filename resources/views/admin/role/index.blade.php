@@ -1,37 +1,7 @@
-@extends('madmin.layout._layout')
+@extends('layouts.app')
 
 @section('content')
                 <article class="content items-list-page">
-                    <div class="title-search-block">
-                        <div class="title-block">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h3 class="title"> {{ $title }} <a href="{{ route('roles.create')}}" class="btn btn-primary btn-sm rounded-s"> Add New </a>
-                                        <div class="action dropdown">
-                                            <button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> More actions... </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                                <a class="dropdown-item" href="#"><i class="fa fa-file-export icon"></i> Export</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-file-import icon"></i> Import</a>
-                                            </div>
-                                        </div>
-                                    </h3>
-                                    <!-- <p class="title-description"> List of <a href="{{ route('dashboard.customer.index') }}">Active</a>, <a href="{{ route('dashboard.customer.index') }}">Pending</a>, <a href="{{ route('dashboard.customer.index') }}">Disabled</a> Customers</p> -->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="items-search" id="customFilters">
-                            <form class="form-inline">
-                                <div class="input-group">
-                                    <input type="text" class="form-control boxed rounded-s" value="<?php echo (isset( $_GET['q'] )) ? $_GET['q'] : ''; ?>" placeholder="Search for..." id="keywords">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-secondary rounded-s list-search-btn" type="button" id="search">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
                     <div class="card items" style="padding: 15px">
                         <div class="row">
                     <div class="col-sm-12">
@@ -71,7 +41,7 @@ hr {
 <script type="text/javascript" src="{{ asset('admin/assets/plugins/dataTable/DataTables-1.10.18/js/jquery.dataTables.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('admin/assets/plugins/dataTable/DataTables-1.10.18/js/dataTables.bootstrap.min.js') }}"></script>
 <script type="text/javascript">
-    var url = "{{ route('roles.index') }}";
+    var url = "{{ route('role.index') }}";
 //
 // Pipelining function for DataTables. To be used to the `ajax` option of DataTables
 //
@@ -104,14 +74,14 @@ $(function(){
         "oLanguage": {
           "sLengthMenu": "Show _MENU_ ",
         },
-        "pageLength": 25, 
-        "bFilter": false, 
+        "pageLength": 25,
+        "bFilter": false,
         "bInfo": true,
         "searching": false,
         "columns": [
         { "data": "id" },
         { "data": "name" },
-        { 
+        {
             "mRender": function( data, type, row ){
                 var str = '';
                 if( row['permissions'].length > 0 ) {
@@ -123,7 +93,7 @@ $(function(){
             }
         }
 ,
-        { 
+        {
             "mRender": function( data, type, row ){
                 return "<a href='/dashboard/role/edit/" + row['id'] + "' class='btn btn-secondary btn-xs'><i class='fa fa-edit'></i></a> <a href='/dashboard/role/show/" + row['id'] + "' class='btn btn-success btn-xs'><i class='fa fa-eye'></i></a>";
             }
@@ -151,7 +121,7 @@ $(function(){
     //Custom Filters ( Author search )
     $(status).change( function() {
         if( $(this).val() != ''){
-            table.draw(); 
+            table.draw();
         }
     } );
 

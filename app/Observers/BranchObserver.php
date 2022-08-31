@@ -1,9 +1,9 @@
 <?php
 
-namespace Larabill\Observers;
+namespace App\Observers;
 
 use Illuminate\Support\Facades\Cache;
-use Larabill\Models\Branch;
+use App\Models\Branch;
 
 class BranchObserver
 {

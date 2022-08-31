@@ -1,14 +1,14 @@
 <?php
 
 
-namespace Larabill\Repositories;
+namespace App\Repositories;
 
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
-use Larabill\Models\Designation;
-use Larabill\Repositories\Interfaces\DesignationRepositoryInterface;
+use App\Models\Designation;
+use App\Repositories\Interfaces\DesignationRepositoryInterface;
 
 class DesignationRepository extends BaseRepository implements DesignationRepositoryInterface
 {

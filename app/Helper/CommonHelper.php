@@ -1,11 +1,11 @@
 <?php
 
-namespace Larabill\Helper;
+namespace App\Helper;
 
-use Larabill\Models\Billing;
-use Larabill\Models\Customer;
-use Larabill\Models\CustomerRequest;
-use Larabill\Models\User;
+use App\Models\Billing;
+use App\Models\Customer;
+use App\Models\CustomerRequest;
+use App\Models\User;
 
 class CommonHelper
 {

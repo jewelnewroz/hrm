@@ -1,4 +1,4 @@
-@extends('madmin.layout._layout')
+@extends('layouts.app')
 
 @section('content')
 
@@ -14,7 +14,7 @@
                             </div>
                         </div>
                         <div class="items-search">
-                          <a href="{{ route('roles.index')}}" class="btn btn-secondary btn-sm rounded-s"><i class="fa fa-arrow-left"></i> Back </a>
+                          <a href="{{ route('role.index')}}" class="btn btn-secondary btn-sm rounded-s"><i class="fa fa-arrow-left"></i> Back </a>
                         </div>
                     </div>
                     <div class="card items">

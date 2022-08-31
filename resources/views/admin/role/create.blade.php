@@ -1,4 +1,4 @@
-@extends('madmin.layout._layout')
+@extends('layouts.app')
 
 @section('content')
 
@@ -13,7 +13,7 @@
                             </div>
                         </div>
                         <div class="items-search">
-                          <a href="{{ route('roles.index')}}" class="btn btn-secondary btn-sm rounded-s"><i class="fa fa-arrow-left"></i> Back </a>
+                          <a href="{{ route('role.index')}}" class="btn btn-secondary btn-sm rounded-s"><i class="fa fa-arrow-left"></i> Back </a>
                         </div>
                     </div>
                     <div class="card items">
@@ -21,7 +21,7 @@
                     <div class="col-sm-12">
                         <div class="clearfix"></div>
                         <div class="box" style="padding:15px 0;">
-                            
+
                             <form action="{{ route('dashboard.role.store') }}" method="POST">
                                 @csrf
                                 <div class="form-group">

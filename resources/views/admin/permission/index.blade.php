@@ -1,4 +1,4 @@
-@extends('madmin.layout._layout')
+@extends('layouts.app')
 
 @section('content')
 
@@ -21,7 +21,7 @@
                             </div>
                         </div>
                         <div class="items-search">
-                            <a href="{{ route('roles.index')}}" class="btn btn-secondary btn-sm rounded-s"><i class="fa fa-tags"></i> Roles </a>
+                            <a href="{{ route('role.index')}}" class="btn btn-secondary btn-sm rounded-s"><i class="fa fa-tags"></i> Roles </a>
                             <a href="{{ route('dashboard.user.index')}}" class="btn btn-secondary btn-sm rounded-s"><i class="fa fa-user-secret"></i> Administrators </a>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                               <div class="card-body text-primary">
                                 @foreach( $lists as $list )
                                   <p class="card-text">
-                                      <span class="label-text">{{ $list->name }} 
+                                      <span class="label-text">{{ $list->name }}
                                         <a href="{{ route('dashboard.permissions.edit', $list->id)}}"><i class="fa fa-edit"></i></a>
                                       </span>
                                   </p>

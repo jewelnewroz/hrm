@@ -1,4 +1,4 @@
-@extends('madmin.layout._layout')
+@extends('layouts.app')
 
 @section('content')
 
@@ -44,7 +44,7 @@
                     <div class="col-sm-12">
                         <div class="clearfix"></div>
                         <div class="box" style="padding:15px 0;">
-                            
+
                         </div>
                         <div class="clearfix"></div>
                     </div><!--/col-->

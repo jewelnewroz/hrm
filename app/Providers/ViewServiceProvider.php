@@ -1,9 +1,13 @@
 <?php
 
-namespace Larabill\Providers;
+namespace App\Providers;
 
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use App\Http\View\Composers\BranchComposer;
+use App\Http\View\Composers\DepartmentComposer;
+use App\Http\View\Composers\CurrencyComposer;
+use App\Http\View\Composers\DesignationComposer;
 
 class ViewServiceProvider extends ServiceProvider
 {
@@ -15,32 +19,16 @@ class ViewServiceProvider extends ServiceProvider
     public function register()
     {
         View::composer(
-            '*', 'Larabill\Http\View\Composers\AreaComposer'
+            '*', BranchComposer::class
         );
         View::composer(
-            '*', 'Larabill\Http\View\Composers\BranchComposer'
+            '*', DepartmentComposer::class
         );
         View::composer(
-            'madmin.billing.payment.index', 'Larabill\Http\View\Composers\BillmanComposer'
+            '*', DesignationComposer::class
         );
         View::composer(
-            '*', 'Larabill\Http\View\Composers\DepartmentComposer'
-        );
-        View::composer(
-            '*', 'Larabill\Http\View\Composers\DesignationComposer'
-        );
-        View::composer(
-            '*', 'Larabill\Http\View\Composers\PackageComposer'
-        );
-        View::composer(
-            '*', 'Larabill\Http\View\Composers\FundComposer'
-        );
-        View::composer(
-            '*', 'Larabill\Http\View\Composers\CurrencyComposer'
-        );
-
-        View::composer(
-            '*', 'Larabill\Http\View\Composers\CounterComposer'
+            '*', CurrencyComposer::class
         );
     }
 

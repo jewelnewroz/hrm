@@ -1,4 +1,4 @@
-@extends('madmin.layout._layout')
+@extends('layouts.app')
 
 @section('content')
 
@@ -7,7 +7,7 @@
             <div class="title-block">
                 <div class="row">
                     <div class="col-md-6">
-                        <h3 class="title"> {{ $title }} <a href="{{ route('dashboard.user.create')}}"
+                        <h3 class="title"> {{ $title }} <a href="{{ route('user.create')}}"
                                                            class="btn btn-primary btn-sm rounded-s"> Add New </a>
                             <div class="action dropdown">
                                 <button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button"
@@ -27,9 +27,9 @@
                                         aria-expanded="false"><i class="fa fa-cog"></i> Manage
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <a class="dropdown-item" href="{{ route('dashboard.user.export') }}"><i
+                                    <a class="dropdown-item" href="{{ route('user.index') }}"><i
                                             class="fa fa-file-export icon"></i> Export</a>
-                                    <a class="dropdown-item" href="{{ route('dashboard.user.import') }}"><i
+                                    <a class="dropdown-item" href="{{ route('user.index') }}"><i
                                             class="fa fa-file-import icon"></i> Import</a>
                                 </div>
                             </div>
@@ -46,7 +46,7 @@
                         <span class="input-group-btn">
                                         <select class="form-control" id="role">
                                             <option value="">Role</option>
-                                            @foreach( $roles as $k => $v )
+                                            @foreach( $role_lists as $k => $v )
                                                 <option
                                                     value="{{ $k }}">{{ ucfirst( str_replace('_', ' ', $v ) ) }}</option>
                                             @endforeach

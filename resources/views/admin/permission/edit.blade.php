@@ -1,4 +1,4 @@
-@extends('madmin.layout._layout')
+@extends('layouts.app')
 
 @section('content')
 
@@ -14,8 +14,8 @@
                             </div>
                         </div>
                         <div class="items-search">
-                          <a href="{{ route('dashboard.permissions.index')}}" class="btn btn-secondary btn-sm rounded-s"><i class="fa fa-arrow-left"></i> Back </a>
-                            <a href="{{ route('roles.index')}}" class="btn btn-secondary btn-sm rounded-s"><i class="fa fa-tags"></i> Roles </a>
+                          <a href="{{ route('dashboard.permission.index')}}" class="btn btn-secondary btn-sm rounded-s"><i class="fa fa-arrow-left"></i> Back </a>
+                            <a href="{{ route('role.index')}}" class="btn btn-secondary btn-sm rounded-s"><i class="fa fa-tags"></i> Roles </a>
                             <a href="{{ route('dashboard.user.index')}}" class="btn btn-secondary btn-sm rounded-s"><i class="fa fa-user-secret"></i> Administrators </a>
                         </div>
                     </div>

@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Larabill\Services;
+namespace App\Services;
 
 
-use Larabill\Models\Option;
+use App\Models\Option;
 
 class SettingService
 {

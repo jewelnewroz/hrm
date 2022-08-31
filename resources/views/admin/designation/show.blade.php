@@ -1,4 +1,4 @@
-@extends('madmin.layout._layout')
+@extends('layouts.app')
 
 @section('content')
 
@@ -200,8 +200,8 @@ $(function(){
         "oLanguage": {
           "sLengthMenu": "Show _MENU_ ",
         },
-        "pageLength": 25, 
-        "bFilter": true, 
+        "pageLength": 25,
+        "bFilter": true,
         "bInfo": true,
         "searching": false,
         "columns": [
@@ -257,18 +257,18 @@ $(function(){
     //Custom Filters ( Author search )
     $(area).change( function() {
         // var keycode = (event.keyCode ? event.keyCode : event.which);
-        table.draw(); 
+        table.draw();
     } );
 
     //Custom Filters ( Author search )
     $(package).change( function() {
         // var keycode = (event.keyCode ? event.keyCode : event.which);
-        table.draw(); 
+        table.draw();
     } );
 
     //Custom Filters ( Author search )
     $(status).change( function() {
-        table.draw(); 
+        table.draw();
     } );
 
     // $('#myModal').modal('show');
