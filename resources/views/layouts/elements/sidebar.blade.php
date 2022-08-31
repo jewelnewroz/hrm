@@ -17,32 +17,32 @@
                     </a>
                 </li>
                 <div class="dropdown-divider"></div>
-                <li class="nav-item">
+                <li class="nav-item @if(request()->segment('2') === 'manage') menu-open @endif">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-cogs"></i>
                         <p>Manage <i class="right fas fa-angle-left"></i></p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('currency.index') }}" class="nav-link">
+                            <a href="{{ route('currency.index') }}" class="nav-link @if($current_route_name == 'currency.index') active @endif">
                                 <i class="fa fa-dollar-sign nav-icon"></i>
                                 <p>Currencies</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('role.index') }}" class="nav-link">
+                            <a href="{{ route('role.index') }}" class="nav-link @if($current_route_name == 'role.index') active @endif">
                                 <i class="fa fa-tags nav-icon"></i>
                                 <p>Roles</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('user.index') }}" class="nav-link">
+                            <a href="{{ route('user.index') }}" class="nav-link @if($current_route_name == 'user.index') active @endif">
                                 <i class="fa fa-user-cog nav-icon"></i>
                                 <p>Users</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('option.index') }}" class="nav-link">
+                            <a href="{{ route('option.index') }}" class="nav-link @if($current_route_name == 'option.index') active @endif">
                                 <i class="fa fa-cog nav-icon"></i>
                                 <p>Options</p>
                             </a>

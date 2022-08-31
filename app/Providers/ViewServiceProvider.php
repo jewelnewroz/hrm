@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\View\Composers\PathComposer;
 use App\Http\View\Composers\RoleComposer;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -19,6 +20,9 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        View::composer(
+            'layouts.elements.sidebar', PathComposer::class
+        );
         View::composer(
             '*', BranchComposer::class
         );
