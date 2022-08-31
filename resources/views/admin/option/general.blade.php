@@ -1,4 +1,4 @@
-<form action='/dashboard/option/store' method="POST">
+<form action="{{ route('option.store') }}" method="POST">
 	@csrf
     <div class="form-group">
         <label for="">Company Name</label>

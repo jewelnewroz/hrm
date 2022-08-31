@@ -5,10 +5,9 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
-use Larabill\Models\Option;
+use App\Models\Option;
 
 class OptionController extends Controller
 {
@@ -53,7 +52,7 @@ class OptionController extends Controller
             $msg = 'Sorry! Option cannot be updated.';
         endif;
 
-        return redirect()->route('dashboard.option.index', ['tab' => $request->tab ])->with(['message.label' => $label, 'message.content' => $msg]);
+        return redirect()->route('option.index', ['tab' => $request->tab ])->with(['message.label' => $label, 'message.content' => $msg]);
     }
 
     public function _option_exist( $key ): bool

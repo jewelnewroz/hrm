@@ -27,16 +27,12 @@ Route::group(['prefix' => '/', 'middleware' => ['guest']], function() {
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-
     Route::resource('employee', EmployeeController::class);
     Route::resource('currency', CurrencyController::class);
     Route::resource('user', UserController::class);
     Route::resource('role', RoleController::class);
     Route::resource('permission', PermissionController::class);
-
-    Route::group(['prefix' => 'option'], function() {
-        Route::get('/', [OptionController::class, 'index'])->name('option.index');
-    });
+    Route::resource('option', OptionController::class)->only(['index', 'store']);
 });
 
 require __DIR__.'/auth.php';

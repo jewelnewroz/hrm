@@ -14,6 +14,7 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('adminLte/dist/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+    @yield('header')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -84,5 +85,6 @@
 <!-- ChartJS -->
 <script src="{{ asset('adminLte/plugins/chart.js/Chart.min.js') }}"></script>
 <script src="{{ asset('adminLte/dist/js/pages/dashboard2.js') }}"></script>
+@yield('footer')
 </body>
 </html>
