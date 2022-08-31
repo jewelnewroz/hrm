@@ -15,14 +15,14 @@
                         <div class="items-search" id="customFilters">
                             <form class="form-inline">
                                 <div class="input-group">
-                                    <a href="{{ route('dashboard.customer.index') }}" class="btn btn-secondary rounded-s list-search-btn" id="search">
+                                    <a href="{{ route('user.index') }}" class="btn btn-secondary rounded-s list-search-btn" id="search">
                                         <i class="fa fa-arrow-left"></i> Back
                                     </a>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    <form name="item" id="customerForm" action="{{ route('dashboard.customer.store')}}" method="POST">
+                    <form name="item" id="customerForm" action="{{ route('user.store')}}" method="POST">
                       @csrf
                       <div class="accordion" id="accordionExample">
                         <div class="card">

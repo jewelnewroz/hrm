@@ -24,6 +24,6 @@ class DepartmentComposer
      */
     public function compose(View $view)
     {
-        $view->with('department_dropdowns', $this->departmentService->all());
+        $view->with('departments', $this->departmentService->all());
     }
 }

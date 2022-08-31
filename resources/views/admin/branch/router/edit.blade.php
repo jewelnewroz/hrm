@@ -9,12 +9,12 @@
                                 <div class="col-md-6">
                                     <h3 class="title"> {{ $title }}
                                     </h3>
-                                    <!-- <p class="title-description"> List of <a href="{{ route('dashboard.customer.index') }}">Active</a>, <a href="{{ route('dashboard.customer.index') }}">Pending</a>, <a href="{{ route('dashboard.customer.index') }}">Disabled</a> Customers</p> -->
+                                    <!-- <p class="title-description"> List of <a href="{{ route('user.index') }}">Active</a>, <a href="{{ route('user.index') }}">Pending</a>, <a href="{{ route('user.index') }}">Disabled</a> Customers</p> -->
                                 </div>
                             </div>
                         </div>
                         <div class="items-search">
-                            <a href="{{ route('dashboard.router.index')}}" class="btn btn-secondary btn-sm rounded-s"><i class="fa fa-arrow-left"></i> Back </a>
+                            <a href="{{ route('router.index')}}" class="btn btn-secondary btn-sm rounded-s"><i class="fa fa-arrow-left"></i> Back </a>
                         </div>
                     </div>
                     <div class="card items">
@@ -22,7 +22,7 @@
                     <div class="col-sm-12">
                         <div class="clearfix"></div>
                         <div class="box" style="padding:15px 0;">
-                            <form action="{{ route('dashboard.router.update', $router->id) }}" method="POST">
+                            <form action="{{ route('router.update', $router->id) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                               <div class="col-sm-5">

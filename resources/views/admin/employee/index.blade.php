@@ -7,7 +7,7 @@
                         <div class="title-block">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h3 class="title"> {{ $title }} <a href="{{ route('dashboard.employee.create')}}" class="btn btn-primary btn-sm rounded-s"> Add New </a>
+                                    <h3 class="title"> {{ $title }} <a href="{{ route('employee.create')}}" class="btn btn-primary btn-sm rounded-s"> Add New </a>
                                         <div class="action dropdown">
                                             <button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i> Actions</button>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -18,12 +18,12 @@
                                         <div class="action dropdown">
                                             <button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog"></i> Manage </button>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                                <a class="dropdown-item" href="{{ route('dashboard.employee.export') }}"><i class="fa fa-file-export icon"></i> Export</a>
-                                                <a class="dropdown-item" href="{{ route('dashboard.employee.import') }}"><i class="fa fa-file-import icon"></i> Import</a>
+                                                <a class="dropdown-item" href="{{ route('employee.export') }}"><i class="fa fa-file-export icon"></i> Export</a>
+                                                <a class="dropdown-item" href="{{ route('employee.import') }}"><i class="fa fa-file-import icon"></i> Import</a>
                                             </div>
                                         </div>
                                     </h3>
-                                    <!-- <p class="title-description"> List of <a href="{{ route('dashboard.employee.index') }}">Active</a>, <a href="{{ route('dashboard.employee.index') }}">Pending</a>, <a href="{{ route('dashboard.employee.index') }}">Disabled</a> Customers</p> -->
+                                    <!-- <p class="title-description"> List of <a href="{{ route('employee.index') }}">Active</a>, <a href="{{ route('employee.index') }}">Pending</a>, <a href="{{ route('employee.index') }}">Disabled</a> Customers</p> -->
                                 </div>
                             </div>
                         </div>
@@ -183,7 +183,7 @@
             $('#datetimepicker2').datetimepicker();
         });
     });
-    var url = "{{ route('dashboard.employee.index') }}";
+    var url = "{{ route('employee.index') }}";
 //
 // Pipelining function for DataTables. To be used to the `ajax` option of DataTables
 //
@@ -192,7 +192,7 @@ $.fn.dataTable.pipeline = function ( opts ) {
     // Configuration options
     var conf = $.extend( {
         pages: 5,     // number of pages to cache
-        url: "{{ route('dashboard.employee.index') }}",      // script url
+        url: "{{ route('employee.index') }}",      // script url
         data: null,   // function or object with parameters to send to the server
                       // matching how `ajax.data` works in DataTables
         method: 'GET' // Ajax HTTP method

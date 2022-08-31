@@ -7,15 +7,15 @@
             <div class="title-block">
                 <div class="row">
                     <div class="col-md-6">
-                        <h3 class="title"> {{ $title }} <a href="{{ route('dashboard.department.create')}}"
+                        <h3 class="title"> {{ $title }} <a href="{{ route('department.create')}}"
                                                            class="btn btn-primary btn-sm rounded-s"> Add New </a>
                         </h3>
-                    <!-- <p class="title-description"> List of <a href="{{ route('dashboard.customer.index') }}">Active</a>, <a href="{{ route('dashboard.customer.index') }}">Pending</a>, <a href="{{ route('dashboard.customer.index') }}">Disabled</a> Customers</p> -->
+                    <!-- <p class="title-description"> List of <a href="{{ route('user.index') }}">Active</a>, <a href="{{ route('user.index') }}">Pending</a>, <a href="{{ route('user.index') }}">Disabled</a> Customers</p> -->
                     </div>
                 </div>
             </div>
             <div class="items-search">
-                <a href="{{ route('dashboard.department.index')}}" class="btn btn-secondary btn-sm rounded-s"><i
+                <a href="{{ route('department.index')}}" class="btn btn-secondary btn-sm rounded-s"><i
                         class="fa fa-arrow-left"></i> Back </a>
             </div>
         </div>
@@ -26,7 +26,7 @@
                 <div class="box" style="padding:15px 0;">
 
                     <div class="col-sm-5">
-                        <form action="{{ route('dashboard.department.update', $department) }}"
+                        <form action="{{ route('department.update', $department) }}"
                               method="POST">
                             @method('PUT')
                             @csrf

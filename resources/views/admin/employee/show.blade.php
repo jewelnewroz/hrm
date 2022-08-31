@@ -7,7 +7,7 @@
                         <div class="title-block">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h3 class="title"> {{ $title }} <a href="{{ route('dashboard.customer.edit', $customer->id)}}" class=""> <i class="fa fa-edit"></i> </a>
+                                    <h3 class="title"> {{ $title }} <a href="{{ route('user.edit', $customer->id)}}" class=""> <i class="fa fa-edit"></i> </a>
                                     </h3>
                                 </div>
                             </div>
@@ -15,7 +15,7 @@
                         <div class="items-search" id="customFilters">
                             <form class="form-inline">
                                 <div class="input-group">
-                                    <a href="{{ route('dashboard.customer.index') }}" class="btn btn-secondary rounded-s list-search-btn" id="search">
+                                    <a href="{{ route('user.index') }}" class="btn btn-secondary rounded-s list-search-btn" id="search">
                                         <i class="fa fa-arrow-left"></i> Back
                                     </a>
                                 </div>
@@ -222,7 +222,7 @@
 <script type="text/javascript">
 var billingsTable, paymentTable;
 $(function(){
-    var url = "{{ route('dashboard.customer.billing') }}";
+    var url = "{{ route('user.billing') }}";
     $.fn.dataTable.ext.classes.sPageButton = 'page-item';
     var customFilter = $('#customFilters');
     var keyword = $(customFilter).find('input#keywords');

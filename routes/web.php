@@ -29,6 +29,11 @@ Route::group(['prefix' => '/', 'middleware' => ['guest']], function() {
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::group(['prefix' => 'employee'], function() {
+        Route::get('export', [EmployeeController::class, 'export'])->name('employee.export');
+        Route::get('import', [EmployeeController::class, 'import'])->name('employee.import');
+    });
     Route::resource('employee', EmployeeController::class);
     Route::resource('designation', DesignationController::class);
     Route::resource('department', DepartmentController::class);

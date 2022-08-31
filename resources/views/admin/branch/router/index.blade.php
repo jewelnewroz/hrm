@@ -6,7 +6,7 @@
                         <div class="title-block">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h3 class="title"> {{ $title ?? '' }} <a href="{{ route('dashboard.router.create')}}" class="btn btn-primary btn-sm rounded-s"> Add New </a>
+                                    <h3 class="title"> {{ $title ?? '' }} <a href="{{ route('router.create')}}" class="btn btn-primary btn-sm rounded-s"> Add New </a>
                                         <div class="action dropdown">
                                             <button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Manage </button>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -15,7 +15,7 @@
                                             </div>
                                         </div>
                                     </h3>
-                                    <!-- <p class="title-description"> List of <a href="{{ route('dashboard.customer.index') }}">Active</a>, <a href="{{ route('dashboard.customer.index') }}">Pending</a>, <a href="{{ route('dashboard.customer.index') }}">Disabled</a> Customers</p> -->
+                                    <!-- <p class="title-description"> List of <a href="{{ route('user.index') }}">Active</a>, <a href="{{ route('user.index') }}">Pending</a>, <a href="{{ route('user.index') }}">Disabled</a> Customers</p> -->
                                 </div>
                             </div>
                         </div>
@@ -48,8 +48,8 @@
                                         <td>********</td>
                                         <td>{{ ( $router->status ) ? 'Active' : 'Inactive' }}</td>
                                         <td>
-                                            <a href="{{ route('dashboard.router.edit', $router->id)}}" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
-                                            <a href="{{ route('dashboard.router.reboot', $router->id) }}" class="btn btn-danger rebootRouter" title="Reboot router" data-id="{{ $router->id }}"><i class="fa fa-redo-alt"></i></a>
+                                            <a href="{{ route('router.edit', $router->id)}}" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
+                                            <a href="{{ route('router.reboot', $router->id) }}" class="btn btn-danger rebootRouter" title="Reboot router" data-id="{{ $router->id }}"><i class="fa fa-redo-alt"></i></a>
                                         </td>
                                     </tr>
                                     @endforeach

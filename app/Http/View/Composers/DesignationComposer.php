@@ -5,7 +5,6 @@ namespace App\Http\View\Composers;
 
 
 use App\Services\DesignationService;
-use App\Services\UserService;
 use Illuminate\View\View;
 
 class DesignationComposer

@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="items-search">
-                <a href="{{ route('dashboard.designation.index')}}" class="btn btn-secondary btn-sm rounded-s"><i
+                <a href="{{ route('designation.index')}}" class="btn btn-secondary btn-sm rounded-s"><i
                         class="fa fa-arrow-left"></i> Back </a>
             </div>
         </div>
@@ -23,7 +23,7 @@
                 <div class="box" style="padding:15px 0;">
 
                     <div class="col-sm-5">
-                        <form action="{{ route('dashboard.designation.store') }}" method="POST">
+                        <form action="{{ route('designation.store') }}" method="POST">
                             @csrf
                             <div class="form-group float-label-control">
                                 <label for="">Name</label>

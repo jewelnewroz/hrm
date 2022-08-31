@@ -7,14 +7,14 @@
             <div class="title-block">
                 <div class="row">
                     <div class="col-md-6">
-                        <h3 class="title"> {{ $title }} <a href="{{ route('dashboard.designation.create')}}"
+                        <h3 class="title"> {{ $title }} <a href="{{ route('designation.create')}}"
                                                            class="btn btn-primary btn-sm rounded-s"> Add New </a>
                         </h3>
                     </div>
                 </div>
             </div>
             <div class="items-search">
-                <a href="{{ route('dashboard.designation.index')}}" class="btn btn-secondary btn-sm rounded-s"><i
+                <a href="{{ route('designation.index')}}" class="btn btn-secondary btn-sm rounded-s"><i
                         class="fa fa-arrow-left"></i> Back </a>
             </div>
         </div>
@@ -25,7 +25,7 @@
                 <div class="box" style="padding:15px 0;">
 
                     <div class="col-sm-5">
-                        <form action="{{ route('dashboard.designation.update', $designation->id) }}" method="POST">
+                        <form action="{{ route('designation.update', $designation->id) }}" method="POST">
                             @method('PUT')
                             @csrf
                             <div class="form-group float-label-control">

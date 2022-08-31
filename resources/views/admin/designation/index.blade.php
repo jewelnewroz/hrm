@@ -8,7 +8,7 @@
             <div class="title-block">
                 <div class="row">
                     <div class="col-md-6">
-                        <h3 class="title"> {{ $title }} <a href="{{ route('dashboard.designation.create')}}"
+                        <h3 class="title"> {{ $title }} <a href="{{ route('designation.create')}}"
                                                            class="btn btn-primary btn-sm rounded-s"> Add New </a>
                             <div class="action dropdown">
                                 <button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button"
@@ -22,7 +22,7 @@
                                 </div>
                             </div>
                         </h3>
-                    <!-- <p class="title-description"> List of <a href="{{ route('dashboard.customer.index') }}">Active</a>, <a href="{{ route('dashboard.customer.index') }}">Pending</a>, <a href="{{ route('dashboard.customer.index') }}">Disabled</a> Customers</p> -->
+                    <!-- <p class="title-description"> List of <a href="{{ route('user.index') }}">Active</a>, <a href="{{ route('user.index') }}">Pending</a>, <a href="{{ route('user.index') }}">Disabled</a> Customers</p> -->
                     </div>
                 </div>
             </div>
@@ -74,7 +74,7 @@
                         <h4 class="sidebar-title"><i class="fa fa-plus"></i> Add new designation</h4>
                         <hr>
 
-                        <form id="createPackage" method="post" action="{{ route('dashboard.designation.store') }}">
+                        <form id="createPackage" method="post" action="{{ route('designation.store') }}">
                             @csrf
                             <div class="form-group">
                                 <label for="">Name</label>
@@ -126,7 +126,7 @@
     <script type="text/javascript"
             src="{{ asset('admin/assets/plugins/dataTable/DataTables-1.10.18/js/dataTables.bootstrap.min.js') }}"></script>
     <script type="text/javascript">
-        var url = "{{ route('dashboard.designation.index') }}";
+        var url = "{{ route('designation.index') }}";
         //
         // Pipelining function for DataTables. To be used to the `ajax` option of DataTables
         //
@@ -135,7 +135,7 @@
             // Configuration options
             var conf = $.extend({
                 pages: 5,     // number of pages to cache
-                url: "{{ route('dashboard.designation.index') }}",      // script url
+                url: "{{ route('designation.index') }}",      // script url
                 data: null,   // function or object with parameters to send to the server
                               // matching how `ajax.data` works in DataTables
                 method: 'GET' // Ajax HTTP method

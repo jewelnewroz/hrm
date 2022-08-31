@@ -22,7 +22,7 @@
                         <div class="clearfix"></div>
                         <div class="box" style="padding:15px 0;">
 
-                            <form action="{{ route('dashboard.role.store') }}" method="POST">
+                            <form action="{{ route('role.store') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label>Role name</label>

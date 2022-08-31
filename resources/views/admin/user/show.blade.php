@@ -7,7 +7,7 @@
                         <div class="title-block">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h3 class="title"> {{ $title }} <a href="{{ route('dashboard.customer.edit', $user->id)}}" class=""> <i class="fa fa-edit"></i> </a>
+                                    <h3 class="title"> {{ $title }} <a href="{{ route('user.edit', $user->id)}}" class=""> <i class="fa fa-edit"></i> </a>
                                     </h3>
                                 </div>
                             </div>
@@ -15,7 +15,7 @@
                         <div class="items-search" id="customFilters">
                             <form class="form-inline">
                                 <div class="input-group">
-                                    <a href="{{ route('dashboard.user.index') }}" class="btn btn-secondary rounded-s list-search-btn" id="search">
+                                    <a href="{{ route('user.index') }}" class="btn btn-secondary rounded-s list-search-btn" id="search">
                                         <i class="fa fa-arrow-left"></i> Back
                                     </a>
                                 </div>
@@ -83,7 +83,7 @@
                                 </div>
                                 <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
                                   <div class="col-md-7">
-                                    <form method="post" action="{{ route('dashboard.user.password')}}">
+                                    <form method="post" action="{{ route('user.password')}}">
                                       @csrf
                                       <div class="form-group">
                                         <input type="password" name="old_password" class="form-control" placeholder="Old Password">

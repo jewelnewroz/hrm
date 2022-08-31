@@ -9,7 +9,7 @@
                                 <div class="col-md-6">
                                     <h3 class="title"> {{ $title }} <a href="{{ route('roles.create')}}" class="btn btn-primary btn-sm rounded-s"> Add New </a>
                                     </h3>
-                                    <!-- <p class="title-description"> List of <a href="{{ route('dashboard.customer.index') }}">Active</a>, <a href="{{ route('dashboard.customer.index') }}">Pending</a>, <a href="{{ route('dashboard.customer.index') }}">Disabled</a> Customers</p> -->
+                                    <!-- <p class="title-description"> List of <a href="{{ route('user.index') }}">Active</a>, <a href="{{ route('user.index') }}">Pending</a>, <a href="{{ route('user.index') }}">Disabled</a> Customers</p> -->
                                 </div>
                             </div>
                         </div>

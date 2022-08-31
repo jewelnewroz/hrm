@@ -7,7 +7,7 @@
                         <div class="title-block">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h3 class="title"> {{ $title }} <a href="{{ route('dashboard.customer.create')}}" class="btn btn-primary btn-sm rounded-s"> Add New </a>
+                                    <h3 class="title"> {{ $title }} <a href="{{ route('user.create')}}" class="btn btn-primary btn-sm rounded-s"> Add New </a>
                                         <div class="action dropdown">
                                             <button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> More actions... </button>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -16,7 +16,7 @@
                                             </div>
                                         </div>
                                     </h3>
-                                    <!-- <p class="title-description"> List of <a href="{{ route('dashboard.customer.index') }}">Active</a>, <a href="{{ route('dashboard.customer.index') }}">Pending</a>, <a href="{{ route('dashboard.customer.index') }}">Disabled</a> Customers</p> -->
+                                    <!-- <p class="title-description"> List of <a href="{{ route('user.index') }}">Active</a>, <a href="{{ route('user.index') }}">Pending</a>, <a href="{{ route('user.index') }}">Disabled</a> Customers</p> -->
                                 </div>
                             </div>
                         </div>

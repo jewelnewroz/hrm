@@ -22,7 +22,7 @@
                 <div class="box" style="padding:15px 0;">
 
                     <div class="col-sm-5">
-                        <form action="{{ route('dashboard.department.store') }}" method="POST">
+                        <form action="{{ route('department.store') }}" method="POST">
                             @csrf
                             <div class="form-group float-label-control">
                                 <label for="">Name</label>
