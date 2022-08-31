@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Dashboard\CurrencyController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\DepartmentController;
+use App\Http\Controllers\Dashboard\DesignationController;
 use App\Http\Controllers\Dashboard\EmployeeController;
 use App\Http\Controllers\Dashboard\OptionController;
 use App\Http\Controllers\Dashboard\PermissionController;
@@ -28,6 +30,8 @@ Route::group(['prefix' => '/', 'middleware' => ['guest']], function() {
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('employee', EmployeeController::class);
+    Route::resource('designation', DesignationController::class);
+    Route::resource('department', DepartmentController::class);
 
     Route::group(['prefix' => 'manage'], function() {
         Route::resource('currency', CurrencyController::class);
