@@ -13,10 +13,11 @@
                 <li class="nav-item">
                     <a href="{{ route('dashboard') }}" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>Dashboard <i class="right fas fa-angle-left"></i></p>
+                        <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="nav-item menu-open">
+                <div class="dropdown-divider"></div>
+                <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-cogs"></i>
                         <p>Manage <i class="right fas fa-angle-left"></i></p>

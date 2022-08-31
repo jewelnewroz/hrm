@@ -9,3 +9,25 @@
     max-width: 200px;
     max-height: 50px;
 }
+.dropdown-divider {
+    border-color: #5a5c5e;
+}
+[class*="sidebar-dark-"] .nav-sidebar > .nav-item.menu-open > .nav-link, [class*="sidebar-dark-"] .nav-sidebar > .nav-item:hover > .nav-link, [class*="sidebar-dark-"] .nav-sidebar > .nav-item > .nav-link:focus {
+    background-color: #FB517F;
+}
+[class*="sidebar-dark-"] .nav-sidebar > .nav-item > .nav-treeview {
+    background: #464242;
+}
+[class*="sidebar-dark-"] .nav-treeview > .nav-item > .nav-link.active, [class*="sidebar-dark-"] .nav-treeview > .nav-item > .nav-link.active:focus, [class*="sidebar-dark-"] .nav-treeview > .nav-item > .nav-link.active:hover {
+    /*background-color: #242526;*/
+    background-color: inherit;
+    color: #466cdf;
+    border-left: 5px solid #466cdf;
+}
+.nav-pills .nav-link {
+    border-radius: inherit;
+}
+.nav-treeview .nav-item .nav-link {
+    border-bottom: 2px solid #44484d;
+    padding-left: 35px;
+}
