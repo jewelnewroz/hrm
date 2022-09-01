@@ -19,7 +19,7 @@
 
                 <div class="dropdown-divider"></div>
 
-                <li class="nav-item @if(request()->segment('2') === 'employee') menu-open @endif">
+                <li class="nav-item @if(in_array(request()->segment('2'), ['employee', 'department', 'designation'])) menu-open @endif">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-user-astronaut"></i>
                         <p>Employees <i class="right fas fa-angle-left"></i></p>
