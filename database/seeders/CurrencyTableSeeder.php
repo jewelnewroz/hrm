@@ -1,7 +1,8 @@
 <?php
+namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Larabill\Models\Currency;
+use App\Models\Currency;
 
 class CurrencySeeder extends Seeder
 {
