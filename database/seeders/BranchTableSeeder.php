@@ -1,5 +1,7 @@
 <?php
-use Larabill\Models\Branch;
+namespace Database\Seeders;
+
+use App\Models\Branch;
 use Illuminate\Database\Seeder;
 
 class BranchTableSeeder extends Seeder

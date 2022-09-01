@@ -1,5 +1,6 @@
 <?php
-use Larabill\Models\Department;
+namespace Database\Seeders;
+use App\Models\Department;
 use Illuminate\Database\Seeder;
 
 class DepartmentTableSeeder extends Seeder
