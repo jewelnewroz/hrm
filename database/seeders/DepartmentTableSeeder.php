@@ -5,12 +5,7 @@ use Illuminate\Database\Seeder;
 
 class DepartmentTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-    * @return void
-        */
-        public function run()
+    public function run()
     {
         $departments = [
             [
@@ -26,20 +21,12 @@ class DepartmentTableSeeder extends Seeder
                 'code' => 'BILLING'
             ],
             [
-                'name' => 'Technical',
-                'code' => 'TECHNICAL'
-            ],
-            [
                 'name' => 'Operations',
                 'code' => 'OPD'
             ],
             [
                 'name' => 'Call center',
-                'code' => 'CCD'
-            ],
-            [
-                'name' => 'Support',
-                'code' => 'SUPPORT'
+                'code' => 'CCO'
             ]
         ];
 

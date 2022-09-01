@@ -16,9 +16,12 @@ class CreateEmployeesTable extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->index();
-            $table->string('date_of_birth')->nullable();
             $table->integer('department_id')->index();
             $table->integer('designation_id')->index();
+            $table->text('present_address')->nullable();
+            $table->text('permanent_address')->nullable();
+            $table->date('date_of_birth')->nullable();
+            $table->date('joining_date');
             $table->softDeletes();
             $table->timestamps();
         });
