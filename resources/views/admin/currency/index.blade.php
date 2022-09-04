@@ -21,7 +21,7 @@
                                 <td>{{ $currency->name }}</td>
                                 <td>{{ $currency->symbol }}</td>
                                 <td>
-                                    <a href="{{ route('currency.edit', $currency->id)}}" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
+                                    <a href="{{ route('currency.edit', $currency->id)}}" class="btn btn-sm btn-secondary"><i class="fa fa-edit"></i></a>
                                 </td>
                             </tr>
                         @endforeach
