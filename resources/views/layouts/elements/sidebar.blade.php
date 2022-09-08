@@ -2,7 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ route('dashboard') }}" class="brand-link">
-        <img src="{{ asset('assets/img/logo-demo.png') }}" title="{{ config('') }}" class="brand-image" style="opacity: .8">
+        <img src="{{ asset('assets/img/logo-white.png') }}" title="{{ config('') }}" class="brand-image" style="opacity: .8">
     </a>
 
     <!-- Sidebar -->
@@ -19,33 +19,6 @@
 
                 <div class="dropdown-divider"></div>
 
-                <li class="nav-item @if(in_array(request()->segment('2'), ['employee', 'department', 'designation'])) menu-open @endif">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-user-astronaut"></i>
-                        <p>Employees <i class="right fas fa-angle-left"></i></p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('employee.index') }}" class="nav-link @if($current_route_name == 'employee.index') active @endif">
-                                <i class="fa fa-dollar-sign nav-icon"></i>
-                                <p>Employees</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('designation.index') }}" class="nav-link @if($current_route_name == 'designation.index') active @endif">
-                                <i class="fa fa-tag nav-icon"></i>
-                                <p>Designations</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('department.index') }}" class="nav-link @if($current_route_name == 'department.index') active @endif">
-                                <i class="fa fa-code-branch nav-icon"></i>
-                                <p>Departments</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
                 <div class="dropdown-divider"></div>
 
                 <li class="nav-item @if(request()->segment('2') === 'manage') menu-open @endif">
@@ -54,12 +27,6 @@
                         <p>Manage <i class="right fas fa-angle-left"></i></p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('currency.index') }}" class="nav-link @if($current_route_name == 'currency.index') active @endif">
-                                <i class="fa fa-dollar-sign nav-icon"></i>
-                                <p>Currencies</p>
-                            </a>
-                        </li>
                         <li class="nav-item">
                             <a href="{{ route('role.index') }}" class="nav-link @if($current_route_name == 'role.index') active @endif">
                                 <i class="fa fa-tags nav-icon"></i>

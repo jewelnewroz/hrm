@@ -7,7 +7,7 @@
                         <div class="title-block">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h3 class="title"> {{ $title }} <a href="{{ route('user.edit', $user->id)}}" class=""> <i class="fa fa-edit"></i> </a>
+                                    <h3 class="title"> {{ $title }} <a href="{{ route('customer.edit', $user->id)}}" class=""> <i class="fa fa-edit"></i> </a>
                                     </h3>
                                 </div>
                             </div>

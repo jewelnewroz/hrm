@@ -2,269 +2,176 @@
 
 @section('content')
 
-                <article class="content items-list-page">
-                    <div class="title-search-block">
-                        <div class="title-block">
+    <article class="content items-list-page">
+        <form name="item" id="customerForm" action="{{ route('user.update', $user->id)}}" method="POST">
+            @csrf
+            @method('PUT')
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" style="color: #666;">
+                                Account Information
+                            </button>
+                        </h2>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                         data-parent="#accordionExample">
+                        @if(count(array_intersect($errors->all(), ['name', 'mobile', 'email'])) > 0)
+                            error found
+                        @endif
+                        <div class="card-body" style="border:1px solid #eee;">
                             <div class="row">
-                                <div class="col-md-6">
-                                    <h3 class="title"><i class="fa fa-user-plus"></i> {{ $title }}
-                                    </h3>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input type="text" id="firstName" name="name"
+                                               class="form-control @if($errors->has('name')) is-invalid @endif"
+                                               value="{{ $user->name }}" placeholder="First name">
+                                        @if($errors->has('name'))
+                                            <div class="invalid-feedback" style="display:block;">
+                                                {{ $errors->first('name') }}
+                                            </div>
+                                        @endif
+                                    </div>
                                 </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" name="email"
+                                               class="form-control @if($errors->has('email')) is-invalid @endif"
+                                               value="{{ $user->email }}" placeholder="Email address">
+                                        @if($errors->has('email'))
+                                            <div class="invalid-feedback" style="display:block;">
+                                                {{ $errors->first('email') }}
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Father's Name</label>
+                                        <input type="text" name="fathers_name"
+                                               class="form-control @if($errors->has('fathers_name')) is-invalid @endif"
+                                               value="{{ $user->fathers_name }}" placeholder="Father's name">
+                                        @if($errors->has('fathers_name'))
+                                            <div class="invalid-feedback" style="display:block;">
+                                                {{ $errors->first('fathers_name') }}
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Mother's Name</label>
+                                        <input type="text" name="mothers_name"
+                                               class="form-control @if($errors->has('mothers_name')) is-invalid @endif"
+                                               value="{{ $user->mothers_name }}" placeholder="Mother's name">
+                                        @if($errors->has('mothers_name'))
+                                            <div class="invalid-feedback" style="display:block;">
+                                                {{ $errors->first('mothers_name') }}
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Gender</label>
+                                        <select class="form-control" name="gender"
+                                                @if($errors->has('gender')) is-invalid @endif" >
+                                        <option value="">Select</option>
+                                        <option value="male" {{ ( $user->gender == 'male') ? 'selected' : '' }}>Male
+                                        </option>
+                                        <option value="female" {{ ( $user->gender == 'female') ? 'selected' : '' }}>
+                                            Female
+                                        </option>
+                                        <option value="other" {{ ( $user->gender == 'other') ? 'selected' : '' }}>
+                                            Other
+                                        </option>
+                                        </select>
+                                        @if($errors->has('gender'))
+                                            <div class="invalid-feedback" style="display:block;">
+                                                {{ $errors->first('gender') }}
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Mobile</label>
+                                        <input type="text" name="mobile"
+                                               class="form-control @if($errors->has('mobile')) is-invalid @endif"
+                                               value="{{ ( !empty( old('mobile') ) ) ? old('mobile') : $user->mobile }}"
+                                               placeholder="Mobile">
+                                        @if($errors->has('mobile'))
+                                            <div class="invalid-feedback" style="display:block;">
+                                                {{ $errors->first('mobile') }}
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Role</label>
+                                        <select class="form-control" name="role"
+                                                @if($errors->has('role')) is-invalid @endif" >
+                                        <option value="">Select</option>
+                                        @foreach( $roles as $role )
+                                            <option
+                                                value="{{ $role->id }}" {{ ( $user->hasrole( $role->name ) ) ? 'selected' : '' }}>{{ $role->name }}</option>
+                                            @endforeach
+                                            </select>
+                                            @if($errors->has('role'))
+                                                <div class="invalid-feedback" style="display:block;">
+                                                    {{ $errors->first('role') }}
+                                                </div>
+                                            @endif
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input type="password" name="password"
+                                               class="form-control @if($errors->has('password')) is-invalid @endif"
+                                               placeholder="Password">
+                                        @if($errors->has('password'))
+                                            <div class="invalid-feedback" style="display:block;">
+                                                {{ $errors->first('password') }}
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Password confirm</label>
+                                        <input type="password" name="password_confirm"
+                                               class="form-control @if($errors->has('password_confirm')) is-invalid @endif"
+                                               placeholder="Password">
+                                        @if($errors->has('password_confirm'))
+                                            <div class="invalid-feedback" style="display:block;">
+                                                {{ $errors->first('password_confirm') }}
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
                             </div>
-                        </div>
-                        <div class="items-search" id="customFilters">
-                            <form class="form-inline">
-                                <div class="input-group">
-                                    <a href="{{ route('user.index') }}" class="btn btn-secondary rounded-s list-search-btn" id="search">
-                                        <i class="fa fa-arrow-left"></i> Back
-                                    </a>
-                                </div>
-                            </form>
+                            <div class="card-footer">
+                                <button class="btn btn-success pull-right" type="submit">Update</button>
+                            </div>
                         </div>
                     </div>
-                    <form name="item" id="customerForm" action="{{ route('user.update', $user->id)}}" method="POST">
-                      @csrf
-                      @method('PUT')
-                      <div class="accordion" id="accordionExample">
-                        <div class="card">
-                          <div class="card-header" id="headingOne">
-                            <h2 class="mb-0">
-                              <button class="btn btn-link" type="button" style="color: #666;">
-                                Account Information
-                              </button>
-                            </h2>
-                          </div>
-
-                          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                            @if(count(array_intersect($errors->all(), ['name', 'mobile', 'email'])) > 0)
-                              error found
-                            @endif
-                            <div class="card-body" style="border:1px solid #eee;">
-                              <div class="row">
-                                  <div class="col-sm-6">
-                                    <div class="form-group">
-                                      <label for="branch_id">Branch</label>
-                                      <select class="form-control @if($errors->has('branch_id')) is-invalid @endif" name="branch_id" id="branch_id" required>
-                                        @if( $branches->count() > 1 )
-                                        <option value="">Select branch</option>
-                                        @endif
-                                        @foreach( $branches as $branch )
-                                        <option value="{{ $branch->id }}" @if(old('branch_id', $user->branch_id)) selected @endif>{{ $branch->name }}</option>
-                                        @endforeach
-                                      </select>
-                                      @if($errors->has('branch_id'))
-                                      <div class="invalid-feedback" style="display:block;">
-                                        {{ $errors->first('branch_id') }}
-                                      </div>
-                                      @endif
-                                    </div>
-                                    <div class="form-group">
-                                      <label>Name</label>
-                                      <input type="text" id="firstName" name="name" class="form-control @if($errors->has('name')) is-invalid @endif" value="{{ $user->name }}" placeholder="First name">
-                                      @if($errors->has('name'))
-                                      <div class="invalid-feedback" style="display:block;">
-                                        {{ $errors->first('name') }}
-                                      </div>
-                                      @endif
-                                    </div>
-                                  </div>
-                                  <div class="col-sm-6">
-                                    <div class="form-group">
-                                      <label>Email</label>
-                                      <input type="email" name="email" class="form-control @if($errors->has('email')) is-invalid @endif" value="{{ $user->email }}" placeholder="Email address">
-                                      @if($errors->has('email'))
-                                      <div class="invalid-feedback" style="display:block;">
-                                        {{ $errors->first('email') }}
-                                      </div>
-                                      @endif
-                                    </div>
-                                  </div>
-                                  <div class="clearfix"></div>
-                                  <div class="col-sm-6">
-                                    <div class="form-group">
-                                      <label>Father's Name</label>
-                                      <input type="text" name="fathers_name" class="form-control @if($errors->has('fathers_name')) is-invalid @endif" value="{{ $user->fathers_name }}" placeholder="Father's name">
-                                      @if($errors->has('fathers_name'))
-                                      <div class="invalid-feedback" style="display:block;">
-                                        {{ $errors->first('fathers_name') }}
-                                      </div>
-                                      @endif
-                                    </div>
-                                  </div>
-                                  <div class="col-sm-6">
-                                    <div class="form-group">
-                                      <label>Mother's Name</label>
-                                      <input type="text" name="mothers_name" class="form-control @if($errors->has('mothers_name')) is-invalid @endif" value="{{ $user->mothers_name }}" placeholder="Mother's name">
-                                      @if($errors->has('mothers_name'))
-                                      <div class="invalid-feedback" style="display:block;">
-                                        {{ $errors->first('mothers_name') }}
-                                      </div>
-                                      @endif
-                                    </div>
-                                  </div>
-                                  <div class="clearfix"></div>
-                                  <div class="col-sm-6">
-                                    <div class="form-group">
-                                      <label>Gender</label>
-                                      <select class="form-control" name="gender" @if($errors->has('gender')) is-invalid @endif" >
-                                        <option value="">Select</option>
-                                        <option value="male" {{ ( $user->gender == 'male') ? 'selected' : '' }}>Male</option>
-                                        <option value="female" {{ ( $user->gender == 'female') ? 'selected' : '' }}>Female</option>
-                                        <option value="other" {{ ( $user->gender == 'other') ? 'selected' : '' }}>Other</option>
-                                      </select>
-                                      @if($errors->has('gender'))
-                                      <div class="invalid-feedback" style="display:block;">
-                                        {{ $errors->first('gender') }}
-                                      </div>
-                                      @endif
-                                    </div>
-                                  </div>
-                                  <div class="col-sm-6">
-                                    <div class="form-group">
-                                      <label>Mobile</label>
-                                      <input type="text" name="mobile" class="form-control @if($errors->has('mobile')) is-invalid @endif" value="{{ ( !empty( old('mobile') ) ) ? old('mobile') : $user->mobile }}" placeholder="Mobile">
-                                      @if($errors->has('mobile'))
-                                      <div class="invalid-feedback" style="display:block;">
-                                        {{ $errors->first('mobile') }}
-                                      </div>
-                                      @endif
-                                    </div>
-                                  </div>
-                                  <div class="clearfix"></div>
-                                  <div class="col-sm-6">
-                                    <div class="form-group">
-                                      <label>Role</label>
-                                      <select class="form-control" name="role" @if($errors->has('role')) is-invalid @endif" >
-                                        <option value="">Select</option>
-                                        @foreach( $roles as $k => $v )
-                                        <option value="{{ $k }}" {{ ( $user->hasrole( $k ) ) ? 'selected' : '' }}>{{ $v }}</option>
-                                        @endforeach
-                                      </select>
-                                      @if($errors->has('role'))
-                                      <div class="invalid-feedback" style="display:block;">
-                                        {{ $errors->first('role') }}
-                                      </div>
-                                      @endif
-                                    </div>
-                                  </div>
-                                  <div class="col-sm-6">
-                                  </div>
-                                  <div class="clearfix"></div>
-                                  <div class="col-sm-6">
-                                    <div class="form-group">
-                                      <label>Password</label>
-                                      <input type="password" name="password" class="form-control @if($errors->has('password')) is-invalid @endif" placeholder="Password">
-                                      @if($errors->has('password'))
-                                      <div class="invalid-feedback" style="display:block;">
-                                        {{ $errors->first('password') }}
-                                      </div>
-                                      @endif
-                                    </div>
-                                  </div>
-                                  <div class="col-sm-6">
-                                    <div class="form-group">
-                                      <label>Password confirm</label>
-                                      <input type="password" name="password_confirm" class="form-control @if($errors->has('password_confirm')) is-invalid @endif" placeholder="Password">
-                                      @if($errors->has('password_confirm'))
-                                      <div class="invalid-feedback" style="display:block;">
-                                        {{ $errors->first('password_confirm') }}
-                                      </div>
-                                      @endif
-                                    </div>
-                                  </div>
-                                  <div class="clearfix"></div>
-                                </div>
-                                <div class="card-footer">
-                                  <button class="btn btn-success pull-right" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color: #666;">
-                                    Next
-                                  </button>
-                                </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="card">
-                          <div class="card-header" id="headingTwo">
-                            <h2 class="mb-0">
-                              <button class="btn btn-link" type="button" style="color: #666;">
-                                Employee Information
-                              </button>
-                            </h2>
-                          </div>
-                          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                            <div class="card-body" style="border:1px solid #eee;">
-                              <div class="row">
-                                  <div class="col-sm-6">
-                                    <div class="form-group">
-                                      <label>Department</label>
-                                      <select class="form-control" name="department_id" @if($errors->has('department_id')) is-invalid @endif" >
-                                        <option value="">Select</option>
-                                        @foreach( $departments as $k => $v )
-                                        <option value="{{ $k }}" {{ ( !empty( $user->employee ) && ( $k == $user->employee['department_id'] ) ) ? 'selected' : old('department_id') }}>{{ $v }}</option>
-                                        @endforeach
-                                      </select>
-                                      @if($errors->has('department_id'))
-                                      <div class="invalid-feedback" style="display:block;">
-                                        {{ $errors->first('department_id') }}
-                                      </div>
-                                      @endif
-                                    </div>
-                                  </div>
-                                  <div class="col-sm-6">
-                                    <div class="form-group">
-                                      <label>Designation</label>
-                                      <select class="form-control" name="designation_id" @if($errors->has('designation_id')) is-invalid @endif" >
-                                        <option value="">Select</option>
-                                        @foreach( $designations as $k => $v )
-                                        <option value="{{ $k }}" {{ ( !empty( $user->employee ) && ( $k == $user->employee['designation_id'] ) ) ? 'selected' : old('designation_id') }}>{{ $v }}</option>
-                                        @endforeach
-                                      </select>
-                                      @if($errors->has('designation_id'))
-                                      <div class="invalid-feedback" style="display:block;">
-                                        {{ $errors->first('designation_id') }}
-                                      </div>
-                                      @endif
-                                    </div>
-                                  </div>
-                                  <div class="clearfix"></div>
-                                  <div class="col-sm-6">
-                                    <div class="form-group">
-                                      <label>Date of Birth</label>
-                                      <input type="text" name="date_of_birth" class="form-control" value="{{ ( !empty( $user->employee ) ) ? $user->employee['date_of_birth'] : old('date_of_birth') }}" placeholder="YYYY-MM-DD">
-                                      @if($errors->has('date_of_birth'))
-                                      <div class="invalid-feedback" style="display:block;">
-                                        {{ $errors->first('date_of_birth') }}
-                                      </div>
-                                      @endif
-                                    </div>
-                                  </div>
-                                  <div class="col-sm-6">
-                                    <div class="form-group">
-                                      <label>Joining Date</label>
-                                      <input type="text" name="joining_date" class="form-control" value="{{ (!empty( $user->employee ) ) ? $user->employee['joining_date'] : old('joining_date') }}" placeholder="YYYY-MM-DD">
-                                      @if($errors->has('joining_date'))
-                                      <div class="invalid-feedback" style="display:block;">
-                                        {{ $errors->first('joining_date') }}
-                                      </div>
-                                      @endif
-                                    </div>
-                                  </div>
-                                  <div class="clearfix"></div>
-                              </div>
-                                <div class="card-footer">
-                                  <button class="btn btn-secondary collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="color: #666;">
-                                    <i class="fa fa-arrow-left"></i> Back to account information
-                                  </button>
-                                  <button class="btn btn-success" type="submit" style="color: #fff;">
-                                    Update user
-                                  </button>
-                                  <div class="clearfix"></div>
-                                </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </form>
-                  </article>
+                </div>
+            </div>
+        </form>
+    </article>
 @endsection
 
 @section('header')
@@ -272,25 +179,25 @@
 @endsection
 
 @section('footer')
-<script type="text/javascript" src="{{ asset('assets/js/parsley.min.js')}}"></script>
-<script>
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function() {
-  'use strict';
+    <script type="text/javascript" src="{{ asset('assets/js/parsley.min.js')}}"></script>
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict';
 
-  var form = $('#customerForm');
+            var form = $('#customerForm');
 
-  $('.formNextStep').click(function(e){
-    var errCounter = 0;
-    if( $(this).attr('data-form-step') == 'account' ) {
-      var accSection = $('.form-control').parsley();
-      if(!accSection.isValid()) {
-        return false;
-      }
+            $('.formNextStep').click(function (e) {
+                var errCounter = 0;
+                if ($(this).attr('data-form-step') == 'account') {
+                    var accSection = $('.form-control').parsley();
+                    if (!accSection.isValid()) {
+                        return false;
+                    }
 
-    }
-  });
+                }
+            });
 
-})();
-</script>
+        })();
+    </script>
 @endsection
