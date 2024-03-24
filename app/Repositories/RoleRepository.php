@@ -11,4 +11,12 @@ class RoleRepository extends BaseRepository implements RoleRepositoryInterface
     {
         parent::__construct($model);
     }
+
+    public function update(array $data, $id): bool
+    {
+        $role = parent::find($id);
+        $role->update($data);
+        $role->syncPermissions(request()->input('permission'));
+        return true;
+    }
 }

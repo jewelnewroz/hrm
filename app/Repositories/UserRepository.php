@@ -3,8 +3,7 @@
 
 namespace App\Repositories;
 
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Cache;
+use App\Models\Role;
 use App\Models\User;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 
@@ -15,26 +14,17 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         parent::__construct($model);
     }
 
-    /**
-     * @return Collection
-     */
-    public function all(): Collection
-    {
-        return parent::all();
-    }
 
-    public function create(array $data)
+    public function update(array $data, $id): bool
     {
-        return parent::create($data);
-    }
-
-    public function getBillmanForDropDown()
-    {
-//        Cache::forget('billmans');
-        return Cache::rememberForever('billmans', function(){
-            return $this->model->with('roles')->select('id', 'name')->whereHas('roles', function($q) {
-                $q->whereNotIn('name', ['customer', 'reseller']);
-            })->where('branch_id', auth()->user()->branch_id)->where('status', 1)->get();
-        });
+        $user = parent::find($id);
+        parent::update($data, $id);
+        if( $user->hasanyrole(Role::all() ) ) {
+            foreach( $user->roles as $role ) {
+                $user->removeRole( $role );
+            }
+        }
+        $user->assignRole(request()->input('role'));
+        return true;
     }
 }

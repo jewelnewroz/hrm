@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Http\View\Composers\PathComposer;
+use App\Http\View\Composers\PermissionComposer;
 use App\Http\View\Composers\RoleComposer;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -21,22 +22,17 @@ class ViewServiceProvider extends ServiceProvider
     public function register()
     {
         View::composer(
-            'layouts.elements.sidebar', PathComposer::class
+            '*', PathComposer::class
         );
         View::composer(
-            '*', BranchComposer::class
+            [
+                'admin.user.index',
+                'admin.user.create',
+                'admin.user.edit'
+            ], RoleComposer::class
         );
         View::composer(
-            '*', DepartmentComposer::class
-        );
-        View::composer(
-            '*', DesignationComposer::class
-        );
-        View::composer(
-            '*', CurrencyComposer::class
-        );
-        View::composer(
-            'admin.user.index', RoleComposer::class
+            ['admin.role.edit', 'admin.role.create'], PermissionComposer::class
         );
     }
 

@@ -20,7 +20,7 @@ class BaseRepository implements BaseRepositoryInterface
         return $this->model->all();
     }
 
-    public function create(array $data)
+    public function create(array $data): Model
     {
         return $this->model->create($data);
     }
@@ -36,7 +36,7 @@ class BaseRepository implements BaseRepositoryInterface
         return $this->model->destroy($id);
     }
 
-    public function show($id)
+    public function find($id)
     {
         return $this->model->findOrFail($id);
     }
